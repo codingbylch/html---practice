@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理程序和跨浏览器解决</title>
+    <style>
+        #divone {
+            width: 300px;
+            background-color: aqua;
+            height: 100px;
+        }
+
+        #buttonone {
+            background-color: brown
+        }
+    </style>
+</head>
+
+<body>
+    <p>DOM中的事件对象：</p>
+    <ul>
+        <li>type属性用于获取事件类型</li>
+        <li>target属性用于获取事件目标</li>
+        <li>sopPropagation()方法用于阻止事件冒泡</li>
+        <li>preventDefault()方法用于阻止默认方法</li>
+    </ul>
+    <div id="divone">
+        <button id="buttonone">阻止事件冒泡</button>
+    </div>
+    <a href="www.baidu.com">阻止跳转</a>
+</body>
+<script>
+    let buttonone = document.querySelector('#buttonone');
+    let divone = document.querySelector('#divone')
+    let a = document.querySelector('a')
+    // buttonone.onclick = reaction //DOM 0级
+    // buttonone.addEventListener('click', reaction) //DOM 2级
+    // divone.addEventListener('click', reaction)
+
+    function reaction(e) {
+        console.log('我阻止了冒泡');
+        e.stopPropagation(); //停止冒泡
+    }
+    function reaction2(e) {
+        console.log('并没有阻止！');
+    }
+
+    function reaction3(e) {
+        e.preventDefault(); //阻止默认行为
+    }
+    // buttonone.removeEventListener('click', reaction)
+    var eventUtil = {
+        addHandler: function (element, type, handler) {
+
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + type, handler);
+
+            } else {
+                element['on' + type] = handler;
+            }
+        },
+        removeHandler: function (element, type, handler) {
+
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.attachEvent('on' + type, handler);
+
+            } else {
+                element['on' + type] = null;
+            }
+
+        }
+
+    }
+
+    eventUtil.addHandler(buttonone, 'click', reaction)
+    eventUtil.addHandler(divone, 'click', reaction2)
+    eventUtil.addHandler(a, 'click', reaction3)
+</script>
+
+</html>
