@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table tr td,
+        th {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>基础表格table tbody tr th td</h2>
+    <table>
+        <caption>caption是表格标题</caption>
+        <tbody>
+            <tr>
+                <th>th is t head</th>
+                <th>tr is t row</th>
+                <th>hahaha</th>
+            </tr>
+            <tr>
+                <td>td is t datta</td>
+                <td>我是2</td>
+                <td>我是3</td>
+            </tr>
+            <tr>
+                <td>我是1</td>
+                <td>我是2</td>
+                <td>我是3</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>允许单元格跨越多行和列</h2>
+    <h3>colspan='2'表示跨越两列，rowspan='3'表跨3行</h3>
+    <table>
+        <caption>Animals table</caption>
+        <tr>
+            <th colspan="2">Animals</th>
+        </tr>
+        <tr>
+            <th colspan="2">Hippopotamus</th>
+        </tr>
+        <tr>
+            <th rowspan="2">Horse</th>
+            <td>Mare</td>
+        </tr>
+        <tr>
+            <td>Stallion</td>
+        </tr>
+        <tr>
+            <th colspan="2">Crocodile</th>
+        </tr>
+        <tr>
+            <th rowspan="2">Chicken</th>
+            <td>Hen</td>
+        </tr>
+        <tr>
+            <td>Rooster</td>
+        </tr>
+    </table>
+    <h2>为表格中的列提供共同的样式 - col colgroup元素 </h2>
+    <table>
+        <caption>不推荐的写法</caption>
+        <tr>
+            <th>Data 1</th>
+            <th style="background-color: yellow">Data 2</th>
+        </tr>
+        <tr>
+            <td>Calcutta</td>
+            <td style="background-color: yellow">Orange</td>
+        </tr>
+        <tr>
+            <td>Robots</td>
+            <td style="background-color: yellow">Jazz</td>
+        </tr>
+    </table>
+    <table>
+        <caption>便携写法</caption>
+        <colgroup>
+            <col>
+            <col style="background-color: yellow">
+        </colgroup>
+        <tr>
+            <th>Data 1</th>
+            <th>Data 2</th>
+        </tr>
+        <tr>
+            <td>Calcutta</td>
+            <td>Orange</td>
+        </tr>
+        <tr>
+            <td>Robots</td>
+            <td>Jazz</td>
+        </tr>
+    </table>
+    <h2>把这种样式信息应用到每一列</h2>
+    <table>
+        <colgroup>
+            <col style="background-color: yellow" span="2">
+        </colgroup>
+        <tr>
+            <th>Data 1</th>
+            <th>Data 2</th>
+        </tr>
+        <tr>
+            <td>Calcutta</td>
+            <td>Orange</td>
+        </tr>
+        <tr>
+            <td>Robots</td>
+            <td>Jazz</td>
+        </tr>
+    </table>
+</body>
+
+</html>
