@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="fruit" id="fruit">
+        <option value="apple">苹果</option>
+        <option value="egg">鸡蛋</option>
+        <option value="banana">香蕉</option>
+        <option value="piano">桃子</option>
+    </select>
+    <select id="groups" name="groups">
+        <optgroup label="fruits">
+            <option>Banana</option>
+            <option selected>Cherry</option>
+            <option>Lemon</option>
+        </optgroup>
+        <optgroup label="vegetables">
+            <option>Carrot</option>
+            <option>Eggplant</option>
+            <option>Potato</option>
+        </optgroup>
+    </select>
+    <label for="myFruit">What's your favorite fruit?</label>
+    <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+    <datalist id="mySuggestion">
+        <option>Apple</option>
+        <option>Banana</option>
+        <option>Blackberry</option>
+        <option>Blueberry</option>
+        <option>Lemon</option>
+        <option>Lychee</option>
+        <option>Peach</option>
+        <option>Pear</option>
+    </datalist>
+    <label for="myFruit">What is your favorite fruit? (With fallback)</label>
+    <input type="text" id="myFruit" name="fruit" list="fruitList">
+
+    <datalist id="fruitList">
+        <label for="suggestion">or pick a fruit</label>
+        <select id="suggestion" name="altFruit">
+            <option>Apple</option>
+            <option>Banana</option>
+            <option>Blackberry</option>
+            <option>Blueberry</option>
+            <option>Lemon</option>
+            <option>Lychee</option>
+            <option>Peach</option>
+            <option>Pear</option>
+        </select>
+    </datalist>
+    <label for="beans">How many beans can you eat?</label>
+    <input type="range" name="beans" id="beans" min="0" max="500" step="10">
+    <span class="beancount"></span>
+    <input type="datetime-local" name="datetime" id="datetime">
+    <div>
+        <input type="file" name="file" id="file" accept="image/*" multiple>
+    </div>
+    <div>
+        <input type="image" alt="Click me!" src="my-img.png" width="80" height="30" />
+    </div>
+    <div>
+        <progress max="100" value="75">75/100</progress>
+    </div>
+    <div>
+        <meter min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
+    </div>
+</body>
+
+</html>
