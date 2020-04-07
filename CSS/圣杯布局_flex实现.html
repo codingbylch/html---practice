@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex弹性盒子-更容易实现</title>
+    <style>
+        .header,.footer{
+            border:1px solid #333333;
+            background: burlywood;
+            text-align: center;
+        }
+        .middle{
+            width: 100%;
+            background: salmon;
+        }
+        .left,.right{
+            width: 200px;
+            background-color: skyblue;
+        }
+        .container{
+            display: flex;
+            text-align: center;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h4>header</h4>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h4>left</h4>
+            <p>left-content</p>
+        </div>
+        <div class="middle">
+            <h4>middle</h4>
+            <p>middle-content</p>
+        </div>
+        <div class="right">
+            <h4>right</h4>
+            <p>right-content</p>
+        </div>
+    </div>
+    <div class="footer">
+        <h4>footer</h4>
+    </div>
+</body>
+
+</html>
