@@ -31,6 +31,15 @@
         <div class="left">left</div>
         <div class="right">right</div>
     </div>
+    <script>
+        let inputs = document.getElementsByTagName('input')
+        let checkBox = []
+        for(let i =0;i<inputs.length;i++){
+            if(inputs[i].type === 'checkbox'){
+                checkBox.push(inputs[i])
+            }
+        }
+    </script>
 </body>
 
 </html>
