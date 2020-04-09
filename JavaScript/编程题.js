@@ -154,3 +154,55 @@ function ajax(type = 'get', url = null) {
         resolve('1')
     })
 }
+
+// 模拟实现new
+
+function Pseron(name) {
+    this.name = name;
+    this.sayname = function () {
+        console.log(this.name)
+    }
+}
+
+function newOperator(ctor) {
+    if (typeof ctor !== 'function') {
+        throw 'newOperator function the first param must be a function';
+    }
+
+
+    newOperator.target = ctor // ES6 new.target 是指向构造函数
+    // 其实关键的就是如何新建一个对象，并完成prototype的指向
+    // new、Object.create和Object.setPrototypeOf可以设置__proto__
+    var newObj = Object.create(ctor.prototype) //使用了Object.create()函数
+    var argsArr = [].slice.call(arguments, 1) // slice的用法
+    var ctorReturnResult = ctor.apply(newObj, argsArr) //将参数传入newObj
+    var isObject = typeof ctorReturnResult === 'object' && ctorReturnResult !== null;
+    var isFunction = typeof ctorReturnResult === 'function'
+    if (isObject || isFunction) {
+        return ctorReturnResult;
+    }
+    return newObj;
+
+}
+
+class Person {
+    constructor(name, age) {
+        this.name = name
+        this.age = age
+    }
+    sayName() {
+        console.log(this.name)
+    }
+}
+
+class student extends Person {
+    constructor(name, age, school) {
+        super(name, age)
+        this.school = school
+    }
+    saySchool() {
+        console.log(this.school)
+    }
+}
+
+let stu = new student('ch', 18, 'FZU')

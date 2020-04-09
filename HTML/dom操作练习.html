@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let p = document.createElement('p')
+    let name = document.createAttribute('name') //新建属性节点
+    name.value = 'hao123' //设置name属性的属性值
+    p.setAttributeNode(name) //将属性节点添加到元素节点上，变成其属性
+    
+    p.innerText = 1234567
+    let body = document.querySelector('body')
+    body.appendChild(p)
+</script>
+
+</html>
